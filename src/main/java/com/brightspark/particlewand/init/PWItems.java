@@ -1,6 +1,6 @@
 package com.brightspark.particlewand.init;
 
-import com.brightspark.particlewand.item.ItemWand;
+import com.brightspark.particlewand.item.ItemParticleWand;
 import com.brightspark.particlewand.util.LogHelper;
 import com.brightspark.particlewand.util.Names;
 import com.brightspark.particlewand.util.Reference;
@@ -12,7 +12,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class PWItems
 {
-    public static ItemWand wand = new ItemWand();
+    public static final ItemParticleWand wand = new ItemParticleWand();
 
     public static void regItems()
     {
@@ -21,10 +21,11 @@ public class PWItems
 
     public static void regModels()
     {
+        m = (ItemModelMesherForge) Minecraft.getMinecraft().getRenderItem().getItemModelMesher();
         regModel(wand);
     }
 
-    private static ItemModelMesherForge m = (ItemModelMesherForge) Minecraft.getMinecraft().getRenderItem().getItemModelMesher();
+    private static ItemModelMesherForge m;
     //Register a model
     private static void regModel(Item item)
     {
